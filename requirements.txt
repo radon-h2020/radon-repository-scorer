@@ -1,0 +1,4 @@
+python-dotenv~=0.14.0
+PyDriller~=1.15.2
+PyGithub~=1.53
+pygount~=1.2.4
