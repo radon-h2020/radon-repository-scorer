@@ -87,9 +87,6 @@ report = score_repository(path_to_repo='path/to/cloned/repo',
 
 ## Current Release
 
-### [0.0.1]
-Now the scorer takes into account Chef and Puppet files when computing the *ratio of iac scripts*.
-- Added support for Chef and Puppet.
-- Fixed div-by-zero when computing the *ratio of comments*.
-
+### [0.0.2]
+- Fixed missing import in MANIFEST.in
 See [CHANGELOG](CHANGELOG.md) for logs detail about releases.
