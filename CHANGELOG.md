@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## [0.0.4]
+- Fixed import issues
+
 ## [0.0.3]
 - Fixed installation issues
 

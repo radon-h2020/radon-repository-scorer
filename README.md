@@ -87,7 +87,7 @@ report = score_repository(path_to_repo='path/to/cloned/repo',
 
 ## Current Release
 
-### [0.0.3]
-- Fixed installation issues
+### [0.0.4]
+- Fixed import issues
 
 See [CHANGELOG](CHANGELOG.md) for logs detail about releases.
