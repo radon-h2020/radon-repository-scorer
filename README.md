@@ -87,7 +87,7 @@ report = score_repository(path_to_repo='path/to/cloned/repo',
 
 ## Current Release
 
-### [0.0.4]
-- Fixed import issues
+###x [0.0.5]
+- Fixed bug in issue_event_frequency. Arguments order was wrong.
 
 See [CHANGELOG](CHANGELOG.md) for logs detail about releases.

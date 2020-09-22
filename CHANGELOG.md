@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## [0.0.5]
+- Fixed bug in issue_event_frequency. Arguments order was wrong.
+
 ## [0.0.4]
 - Fixed import issues
 

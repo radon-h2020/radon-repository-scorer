@@ -9,8 +9,8 @@ from repositoryscorer.attributes.loc_info import loc_info
 
 def score_repository(path_to_repo: str,
                      access_token: str,
-                     repo_name: str,
-                     repo_owner: str):
+                     repo_owner: str,
+                     repo_name: str):
     """
     Score a repository to identify well-engineered projects.
 
@@ -24,7 +24,7 @@ def score_repository(path_to_repo: str,
     history = commit_frequency(path_to_repo)
     community = core_contributors(path_to_repo)
     ci = has_continuous_integration(path_to_repo)
-    issues = issue_event_frequency(path_to_repo, access_token, repo_name, repo_owner)
+    issues = issue_event_frequency(path_to_repo, access_token, repo_owner, repo_name)
     license = has_license(path_to_repo)
     cloc, sloc = loc_info(path_to_repo)
     ratio_comments = cloc / (cloc + sloc) if (cloc + sloc) != 0 else 0
