@@ -1,8 +1,6 @@
 import json
 from setuptools import setup, find_packages
 
-VERSION = '0.0.1'
-
 with open("config.json", "r") as fh:
     config = json.load(fh)
 
@@ -11,6 +9,8 @@ with open("requirements.txt", "r") as reqs_file:
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
+
+VERSION = config.get('version', '0.0.0')
 
 setup(
     name='repository-scorer',
