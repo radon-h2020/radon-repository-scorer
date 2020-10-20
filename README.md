@@ -97,14 +97,4 @@ report = score_repository(path_to_repo='path/to/cloned/repo',
 }
 ``` 
 
-**NOTE:** It is important that an environmental variable *GITHUB_ACCESS_TOKEN*  is set up to compute the 
-"issue events frequency".
-
-
-## Current Release
-
-### [0.0.6]
-- Added support for Gitlab
-- changed parameters in score_repository()
-
 See [CHANGELOG](CHANGELOG.md) for logs detail about releases.

@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## [v0.0.7]
+- Minor fix for automatic release on PYPI
+
 ## [0.0.6]
 - Added support for Gitlab
 - changed parameters in score_repository()
