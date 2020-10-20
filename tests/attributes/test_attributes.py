@@ -10,7 +10,7 @@ from repositoryscorer.attributes.community import core_contributors
 from repositoryscorer.attributes.continuous_integration import has_continuous_integration
 from repositoryscorer.attributes.history import commit_frequency
 from repositoryscorer.attributes.iac import iac_ratio
-from repositoryscorer.attributes.issues import issue_event_frequency
+from repositoryscorer.attributes.issues import github_issue_event_frequency, gitlab_issue_event_frequency
 from repositoryscorer.attributes.licensing import has_license
 from repositoryscorer.attributes.loc_info import loc_info
 
@@ -48,14 +48,22 @@ class AttributesTestCase(unittest.TestCase):
         assert round(iac_ratio(PATH_TO_REPO), 2) == 0.67
 
     @staticmethod
-    def test_issue_event_frequency():
-        issue_frequency = issue_event_frequency(access_token=os.getenv('GITHUB_ACCESS_TOKEN'),
-                                                full_name_or_id='ANXS/postgresql',
-                                                since=None,
-                                                until=datetime(year=2020, month=10, day=20)
-                                                )
+    def test_github_issue_event_frequency():
+        issue_frequency = github_issue_event_frequency(access_token=os.getenv('GITHUB_ACCESS_TOKEN'),
+                                                       full_name_or_id='ANXS/postgresql',
+                                                       since=None,
+                                                       until=datetime(year=2020, month=10, day=20))
 
         assert round(issue_frequency, 1) == 5.0
+
+    @staticmethod
+    def test_gitlab_issue_event_frequency():
+        issue_frequency = gitlab_issue_event_frequency(access_token=os.getenv('GITLAB_ACCESS_TOKEN'),
+                                                       full_name_or_id='commonshost/ansible',
+                                                       since=None,
+                                                       until=datetime(year=2020, month=10, day=20))
+
+        assert round(issue_frequency, 1) == 2.1
 
     @staticmethod
     def test_has_license():
