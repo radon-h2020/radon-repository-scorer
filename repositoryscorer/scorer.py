@@ -24,14 +24,13 @@ def score_repository(path_to_repo: str,
     history = commit_frequency(path_to_repo)
     community = core_contributors(path_to_repo)
     ci = has_continuous_integration(path_to_repo)
-    issues = issue_event_frequency(path_to_repo, access_token, repo_owner, repo_name)
+    issues = issue_event_frequency(access_token, repo_owner, repo_name)
     license = has_license(path_to_repo)
     cloc, sloc = loc_info(path_to_repo)
     ratio_comments = cloc / (cloc + sloc) if (cloc + sloc) != 0 else 0
     ratio_iac = iac_ratio(path_to_repo)
 
     return {
-        'repository': path_to_repo,
         'continuous_integration': ci,
         'percent_comment': round(ratio_comments, 4),
         'commit_frequency': round(history, 2),

@@ -1,6 +1,7 @@
 import os
 import unittest
 
+from datetime import datetime
 from dotenv import load_dotenv
 from pathlib import Path
 from pydriller import GitRepository
@@ -15,6 +16,7 @@ from repositoryscorer.attributes.loc_info import loc_info
 
 ROOT = os.path.realpath(__file__).rsplit(os.sep, 3)[0]
 PATH_TO_REPO = str(Path(os.path.join(ROOT, 'test_data', 'ANXS', 'postgresql')))
+
 
 class AttributesTestCase(unittest.TestCase):
 
@@ -47,7 +49,14 @@ class AttributesTestCase(unittest.TestCase):
 
     @staticmethod
     def test_issue_event_frequency():
-        assert round(issue_event_frequency(PATH_TO_REPO, os.getenv('GITHUB_ACCESS_TOKEN'), 'ANXS', 'postgresql'), 1) == 5.1
+        issue_frequency = issue_event_frequency(os.getenv('GITHUB_ACCESS_TOKEN'),
+                                                'ANXS',
+                                                'postgresql',
+                                                since=None,
+                                                until=datetime(year=2020, month=10, day=20)
+                                                )
+
+        assert round(issue_frequency, 1) == 5.0
 
     @staticmethod
     def test_has_license():
