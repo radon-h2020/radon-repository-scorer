@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [0.0.6]
+- Added support for Gitlab
+- changed parameters in score_repository()
+
 ## [0.0.5]
 - Fixed bug in issue_event_frequency. Arguments order was wrong.
 

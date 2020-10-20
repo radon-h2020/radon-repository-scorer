@@ -1,4 +1,7 @@
+**Actions**
+
 ![Build](https://github.com/radon-h2020/radon-repository-scorer/workflows/Build/badge.svg)
+![Upload Python Package](https://github.com/radon-h2020/radon-repository-scorer/workflows/Upload%20Python%20Package/badge.svg)
 
 **Code quality**
 
@@ -21,7 +24,7 @@
 
 
 # radon-repository-scorer
-The radon-repositoru-scorer is a Python package to compute a repository best engineering practices indicators.
+The radon-repository-scorer is a Python package to compute a repository best engineering practices indicators.
 
 The module provides the following 8 indicators of well-engineered software projects:
 
@@ -83,7 +86,6 @@ report = score_repository(path_to_repo='path/to/cloned/repo',
 **Expected**
 ```
 {
-  'repository': path/to/cloned/repo,
   'continuous_integration': <bool>,
   'percent_comment': <float in [0,1]>,
   'commit_frequency': <float>,
@@ -101,7 +103,8 @@ report = score_repository(path_to_repo='path/to/cloned/repo',
 
 ## Current Release
 
-###x [0.0.5]
-- Fixed bug in issue_event_frequency. Arguments order was wrong.
+### [0.0.6]
+- Added support for Gitlab
+- changed parameters in score_repository()
 
 See [CHANGELOG](CHANGELOG.md) for logs detail about releases.
