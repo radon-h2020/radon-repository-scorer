@@ -1,11 +1,24 @@
+![Build](https://github.com/radon-h2020/radon-repository-scorer/workflows/Build/badge.svg)
+
+**Code quality**
+
+![lgtm](https://img.shields.io/lgtm/grade/python/github/radon-h2020/radon-repository-scorer)
+![LGTM Alerts](https://img.shields.io/lgtm/alerts/github/radon-h2020/radon-repository-scorer)
 ![Issues](https://img.shields.io/github/issues/radon-h2020/radon-repository-scorer)
-![pypi-version](https://img.shields.io/pypi/v/repository-scorer)
-![pypi-status](https://img.shields.io/pypi/status/repository-scorer)
-![python-version](https://img.shields.io/pypi/pyversions/repository-scorer)
+
+**PyPI**
+
+![pypi-version](https://img.shields.io/pypi/v/repository-scorer) 
+![pypi-status](https://img.shields.io/pypi/status/repository-scorer) 
 ![pypi-download](https://img.shields.io/pypi/dw/repository-scorer)
+
+**Others**
+
+![python-version](https://img.shields.io/pypi/pyversions/repository-scorer)
 ![release-date](https://img.shields.io/github/release-date/radon-h2020/radon-repository-scorer)
 ![license](https://img.shields.io/pypi/l/repository-scorer)
-![lgtm](https://img.shields.io/lgtm/grade/python/github/radon-h2020/radon-repository-scorer)
+
+
 
 # radon-repository-scorer
 The radon-repositoru-scorer is a Python package to compute a repository best engineering practices indicators.
@@ -59,12 +72,12 @@ pip install .
 ## How to use
 
 ```python
-from repositoryscorer import score_repository
+from repositoryscorer.scorer import score_repository
 
 report = score_repository(path_to_repo='path/to/cloned/repo',
                           access_token='<GITHUB_ACCESS_TOKEN>',
-                          repo_owner='<owner>',   # e.g., radon-h2020
-                          repo_name='<name>')     # e.g., radon-repository-scorer
+                          full_name_or_id='repo_owner/repo_name',  # e.g., radon-h2020/radon-repository-scorer
+                          host='github')  # or gitlab
 ```
 
 **Expected**

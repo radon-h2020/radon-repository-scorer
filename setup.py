@@ -1,16 +1,10 @@
-import json
 from setuptools import setup, find_packages
-
-with open("config.json", "r") as fh:
-    config = json.load(fh)
 
 with open("requirements.txt", "r") as reqs_file:
     requirements = reqs_file.read().splitlines()
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
-
-VERSION = config.get('version', '0.0.0')
 
 setup(
     name='repository-scorer',
@@ -19,10 +13,8 @@ setup(
     long_description_content_type="text/markdown",
     author='Stefano Dalla Palma',
     author_email='stefano.dallapalma0@gmail.com',
-    version=VERSION,
     packages=find_packages(exclude=('tests',)),
     url='https://github.com/radon-h2020/radon-repository-scorer',
-    download_url=f'https://github.com/radon-h2020/radon-repository-scorer/archive/{VERSION}.tar.gz',
     license='Apache License',
     python_requires='>=3.7',
     install_requires=requirements,
