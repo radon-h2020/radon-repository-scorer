@@ -49,9 +49,8 @@ class AttributesTestCase(unittest.TestCase):
 
     @staticmethod
     def test_issue_event_frequency():
-        issue_frequency = issue_event_frequency(os.getenv('GITHUB_ACCESS_TOKEN'),
-                                                'ANXS',
-                                                'postgresql',
+        issue_frequency = issue_event_frequency(access_token=os.getenv('GITHUB_ACCESS_TOKEN'),
+                                                full_name_or_id='ANXS/postgresql',
                                                 since=None,
                                                 until=datetime(year=2020, month=10, day=20)
                                                 )

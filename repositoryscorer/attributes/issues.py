@@ -1,24 +1,23 @@
 import github
 from datetime import datetime
+from typing import Union
 
 
 def issue_event_frequency(access_token: str,
-                          repo_owner: str,
-                          repo_name: str,
+                          full_name_or_id: Union[str, int],
                           since: datetime = None,
                           until: datetime = None) -> float:
     """
     Return the average number of issue events per month
     :param access_token: Github personal token to query repositories
-    :param repo_owner: the repository owner
-    :param repo_name: the repository name
+    :param full_name_or_id: the full name of a repository or its id (e.g., radon-h2020/radon-repository-scorer)
     :param since: look for events since this date
     :param until: look for events until this date
     :return: the monthly average number of issue events
     """
 
     g = github.Github(access_token)
-    repo = g.get_repo(f'{repo_owner}/{repo_name}')
+    repo = g.get_repo(full_name_or_id)
 
     if not since:
         since = repo.created_at
