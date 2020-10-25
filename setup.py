@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='repository-scorer',
-    version="0.0.7",
+    version="0.1.0",
     description='A python package to compute a repository best engineering practices indicators',
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -20,10 +20,6 @@ setup(
     python_requires='>=3.7',
     install_requires=requirements,
     classifiers=[
-            # How mature is this project? Common values are
-            #   3 - Alpha
-            #   4 - Beta
-            #   5 - Production/Stable
             'Development Status :: 5 - Production/Stable',
             'Environment :: Console',
             'Intended Audience :: Developers',

@@ -25,11 +25,11 @@ def core_contributors(path_to_repo: str) -> int:
 
     i = 0
     core_contribution = 0
-    core_contributors = 0
+    core_contributors_ = 0
 
     while i < len(contributions) and core_contribution < round(.8 * total_commits):
         core_contribution += contributions[i]
-        core_contributors += 1
+        core_contributors_ += 1
         i += 1
 
-    return core_contributors
+    return core_contributors_

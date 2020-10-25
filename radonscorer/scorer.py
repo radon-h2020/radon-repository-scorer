@@ -1,16 +1,15 @@
 from typing import Union
 
-from repositoryscorer.attributes.community import core_contributors
-from repositoryscorer.attributes.continuous_integration import has_continuous_integration
-from repositoryscorer.attributes.history import commit_frequency
-from repositoryscorer.attributes.iac import iac_ratio
-from repositoryscorer.attributes.issues import github_issue_event_frequency, gitlab_issue_event_frequency
-from repositoryscorer.attributes.licensing import has_license
-from repositoryscorer.attributes.loc_info import loc_info
+from .attributes.community import core_contributors
+from .attributes.continuous_integration import has_continuous_integration
+from .attributes.history import commit_frequency
+from .attributes.iac import iac_ratio
+from .attributes.issues import github_issue_event_frequency, gitlab_issue_event_frequency
+from .attributes.licensing import has_license
+from .attributes.loc_info import loc_info
 
 
 def score_repository(path_to_repo: str,
-                     access_token: str,
                      full_name_or_id: Union[str, int],
                      host: str):
     """
@@ -24,9 +23,9 @@ def score_repository(path_to_repo: str,
     """
     issues = 0
     if host == 'github':
-        issues = github_issue_event_frequency(access_token, full_name_or_id)
+        issues = github_issue_event_frequency(full_name_or_id)
     elif host == 'gitlab':
-        issues = gitlab_issue_event_frequency(access_token, full_name_or_id)
+        issues = gitlab_issue_event_frequency(full_name_or_id)
 
     history = commit_frequency(path_to_repo)
     community = core_contributors(path_to_repo)

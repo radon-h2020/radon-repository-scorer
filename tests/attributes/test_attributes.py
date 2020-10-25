@@ -6,13 +6,14 @@ from dotenv import load_dotenv
 from pathlib import Path
 from pydriller import GitRepository
 
-from repositoryscorer.attributes.community import core_contributors
-from repositoryscorer.attributes.continuous_integration import has_continuous_integration
-from repositoryscorer.attributes.history import commit_frequency
-from repositoryscorer.attributes.iac import iac_ratio
-from repositoryscorer.attributes.issues import github_issue_event_frequency, gitlab_issue_event_frequency
-from repositoryscorer.attributes.licensing import has_license
-from repositoryscorer.attributes.loc_info import loc_info
+from radonscorer.attributes.comments import comments_ratio
+from radonscorer.attributes.community import core_contributors
+from radonscorer.attributes.continuous_integration import has_continuous_integration
+from radonscorer.attributes.history import commit_frequency
+from radonscorer.attributes.iac import iac_ratio
+from radonscorer.attributes.issues import github_issue_event_frequency, gitlab_issue_event_frequency
+from radonscorer.attributes.licensing import has_license
+from radonscorer.attributes.loc_info import loc_info
 
 ROOT = os.path.realpath(__file__).rsplit(os.sep, 3)[0]
 PATH_TO_REPO = str(Path(os.path.join(ROOT, 'test_data', 'ANXS', 'postgresql')))
@@ -49,8 +50,7 @@ class AttributesTestCase(unittest.TestCase):
 
     @staticmethod
     def test_github_issue_event_frequency():
-        issue_frequency = github_issue_event_frequency(access_token=os.getenv('GITHUB_ACCESS_TOKEN'),
-                                                       full_name_or_id='ANXS/postgresql',
+        issue_frequency = github_issue_event_frequency(full_name_or_id='ANXS/postgresql',
                                                        since=None,
                                                        until=datetime(year=2020, month=10, day=20))
 
@@ -58,8 +58,7 @@ class AttributesTestCase(unittest.TestCase):
 
     @staticmethod
     def test_gitlab_issue_event_frequency():
-        issue_frequency = gitlab_issue_event_frequency(access_token=os.getenv('GITLAB_ACCESS_TOKEN'),
-                                                       full_name_or_id='commonshost/ansible',
+        issue_frequency = gitlab_issue_event_frequency(full_name_or_id='commonshost/ansible',
                                                        since=None,
                                                        until=datetime(year=2020, month=10, day=20))
 
@@ -74,6 +73,10 @@ class AttributesTestCase(unittest.TestCase):
         cloc, sloc = loc_info(PATH_TO_REPO)
         assert cloc == 343
         assert sloc == 1345
+
+    @staticmethod
+    def test_comments_ratio():
+        assert comments_ratio(PATH_TO_REPO) == 343 / (343 + 1345)
 
 
 if __name__ == '__main__':

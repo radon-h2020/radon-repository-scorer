@@ -1,22 +1,21 @@
+import os
 import github, gitlab
 from datetime import datetime
 from typing import Union
 
 
-def github_issue_event_frequency(access_token: str,
-                                 full_name_or_id: Union[str, int],
+def github_issue_event_frequency(full_name_or_id: Union[str, int],
                                  since: datetime = None,
                                  until: datetime = None) -> float:
     """
     Return the average number of issue events per month
-    :param access_token: Github personal token to query repositories
     :param full_name_or_id: the full name of a repository or its id (e.g., radon-h2020/radon-repository-scorer)
     :param since: look for events since this date
     :param until: look for events until this date
     :return: the monthly average number of issue events
     """
 
-    gh = github.Github(access_token)
+    gh = github.Github(os.getenv('GITHUB_ACCESS_TOKEN'))
     repo = gh.get_repo(full_name_or_id)
 
     if not since:
@@ -46,20 +45,18 @@ def github_issue_event_frequency(access_token: str,
     return events / months
 
 
-def gitlab_issue_event_frequency(access_token: str,
-                                 full_name_or_id: Union[str, int],
+def gitlab_issue_event_frequency(full_name_or_id: Union[str, int],
                                  since: datetime = None,
                                  until: datetime = None) -> float:
     """
     Return the average number of issue events per month
-    :param access_token: Github personal token to query repositories
     :param full_name_or_id: the full name of a repository or its id (e.g., radon-h2020/radon-repository-scorer)
     :param since: look for events since this date
     :param until: look for events until this date
     :return: the monthly average number of issue events
     """
 
-    gl = gitlab.Gitlab('http://gitlab.com', access_token)
+    gl = gitlab.Gitlab('http://gitlab.com', os.getenv('GITLAB_ACCESS_TOKEN'))
     project = gl.projects.get(full_name_or_id)
 
     if not since:

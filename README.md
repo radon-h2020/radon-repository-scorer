@@ -1,27 +1,10 @@
-**Actions**
-
 ![Build](https://github.com/radon-h2020/radon-repository-scorer/workflows/Build/badge.svg)
-![Upload Python Package](https://github.com/radon-h2020/radon-repository-scorer/workflows/Upload%20Python%20Package/badge.svg)
-
-**Code quality**
-
 ![lgtm](https://img.shields.io/lgtm/grade/python/github/radon-h2020/radon-repository-scorer)
 ![LGTM Alerts](https://img.shields.io/lgtm/alerts/github/radon-h2020/radon-repository-scorer)
-![Issues](https://img.shields.io/github/issues/radon-h2020/radon-repository-scorer)
-
-**PyPI**
-
-![pypi-version](https://img.shields.io/pypi/v/repository-scorer) 
-![pypi-status](https://img.shields.io/pypi/status/repository-scorer) 
-![pypi-download](https://img.shields.io/pypi/dw/repository-scorer)
-
-**Others**
-
-![python-version](https://img.shields.io/pypi/pyversions/repository-scorer)
+![pypi-version](https://img.shields.io/pypi/v/repository-scorer)
+![pypi-status](https://img.shields.io/pypi/status/repository-scorer)
 ![release-date](https://img.shields.io/github/release-date/radon-h2020/radon-repository-scorer)
-![license](https://img.shields.io/pypi/l/repository-scorer)
-
-
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 # radon-repository-scorer
 The radon-repository-scorer is a Python package to compute a repository best engineering practices indicators.
@@ -40,7 +23,7 @@ The module provides the following 8 indicators of well-engineered software proje
 
 All the previous indicators but the last are described in depth in:
 
-```
+```text
 @inproceedings{@article{munaiah2017curating,
   title={Curating GitHub for engineered software projects},
   author={Munaiah, Nuthan and Kroh, Steven and Cabrey, Craig and Nagappan, Meiyappan},
@@ -75,16 +58,15 @@ pip install .
 ## How to use
 
 ```python
-from repositoryscorer.scorer import score_repository
+from radonscorer.scorer import score_repository
 
 report = score_repository(path_to_repo='path/to/cloned/repo',
-                          access_token='<GITHUB_ACCESS_TOKEN>',
                           full_name_or_id='repo_owner/repo_name',  # e.g., radon-h2020/radon-repository-scorer
                           host='github')  # or gitlab
 ```
 
-**Expected**
-```
+**Output**
+```text
 {
   'continuous_integration': <bool>,
   'percent_comment': <float in [0,1]>,
