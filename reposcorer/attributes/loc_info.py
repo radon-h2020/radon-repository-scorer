@@ -1,6 +1,6 @@
 import os
 from pygount import ProjectSummary, SourceAnalysis
-from radonscorer.utility import get_files
+from reposcorer.utility import get_files
 
 
 def loc_info(path_to_repo: str):

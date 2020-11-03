@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## [0.2.0]
+- Renamed module radonscorer to reposcorer.
+
 ## [v0.0.7]
 - Minor fix for automatic release on PYPI
 

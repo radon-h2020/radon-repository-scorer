@@ -1,4 +1,4 @@
-from radonscorer.utility import get_files
+from reposcorer.utility import get_files
 import statistics
 
 

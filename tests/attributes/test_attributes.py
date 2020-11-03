@@ -6,14 +6,14 @@ from dotenv import load_dotenv
 from pathlib import Path
 from pydriller import GitRepository
 
-from radonscorer.attributes.comments import comments_ratio
-from radonscorer.attributes.community import core_contributors
-from radonscorer.attributes.continuous_integration import has_continuous_integration
-from radonscorer.attributes.history import commit_frequency
-from radonscorer.attributes.iac import iac_ratio
-from radonscorer.attributes.issues import github_issue_event_frequency, gitlab_issue_event_frequency
-from radonscorer.attributes.licensing import has_license
-from radonscorer.attributes.loc_info import loc_info
+from reposcorer.attributes.comments import comments_ratio
+from reposcorer.attributes.community import core_contributors
+from reposcorer.attributes.continuous_integration import has_continuous_integration
+from reposcorer.attributes.history import commit_frequency
+from reposcorer.attributes.iac import iac_ratio
+from reposcorer.attributes.issues import github_issue_event_frequency, gitlab_issue_event_frequency
+from reposcorer.attributes.licensing import has_license
+from reposcorer.attributes.loc_info import loc_info
 
 ROOT = os.path.realpath(__file__).rsplit(os.sep, 3)[0]
 PATH_TO_REPO = str(Path(os.path.join(ROOT, 'test_data', 'ANXS', 'postgresql')))
