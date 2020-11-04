@@ -5,6 +5,7 @@
 ![pypi-status](https://img.shields.io/pypi/status/repository-scorer)
 ![release-date](https://img.shields.io/github/release-date/radon-h2020/radon-repository-scorer)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+![python-version](https://img.shields.io/pypi/pyversions/repository-scorer)
 
 # radon-repository-scorer
 The radon-repository-scorer is a Python package to compute a repository best engineering practices indicators.

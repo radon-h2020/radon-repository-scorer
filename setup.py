@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='repository-scorer',
-    version="0.2.0",
+    version="0.2.1",
     description='A python package to compute a repository best engineering practices indicators',
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -17,7 +17,7 @@ setup(
     packages=find_packages(exclude=('tests',)),
     url='https://github.com/radon-h2020/radon-repository-scorer',
     license='Apache License',
-    python_requires='>=3.7',
+    python_requires='>=3.6',
     install_requires=requirements,
     classifiers=[
             'Development Status :: 5 - Production/Stable',
@@ -25,7 +25,10 @@ setup(
             'Intended Audience :: Developers',
             'Intended Audience :: Science/Research',
             'License :: OSI Approved :: Apache Software License',
+            'Programming Language :: Python :: 3.6',
             'Programming Language :: Python :: 3.7',
+            'Programming Language :: Python :: 3.8',
+            'Programming Language :: Python :: 3.9',
             'Topic :: Software Development :: Libraries :: Python Modules',
             "Operating System :: OS Independent"
     ]
