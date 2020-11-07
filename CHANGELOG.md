@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## [0.3.0]
+- Renamed score_repository parameter path_to_repo -> clone_to
+- Added entrypoint main.py
+- Added Dockerfile
+
 ## [0.2.0]
 - Renamed module radonscorer to reposcorer.
 

@@ -69,15 +69,37 @@ report = score_repository(path_to_repo='path/to/cloned/repo',
 **Output**
 ```text
 {
-  'continuous_integration': <bool>,
-  'percent_comment': <float in [0,1]>,
+  'has_ci': <bool>,
+  'comments_ratio': <float in [0,1]>,
   'commit_frequency': <float>,
   'core_contributors': <int>,
   'iac_ratio': <float in [0,1]>,
   'issue_frequency': <float>,
-  'license': <bool>,
+  'has_license': <bool>,
   'repository_size': <int>
 }
 ``` 
+
+
+## How to build the Docker image
+
+`docker build -t repo-scorer:latest .`
+
+## How to pull from Dockerhub
+
+`docker pull radonconsortium/repo-scorer:latest`
+
+## How to use Docker image
+
+`docker run repo-scorer:latest <host> <repo full name> <clone to>`
+
+**Example**
+
+`docker run repo-scorer:latest github UoW-CPC/COLARepo /tmp/`
+
+*Output:*
+
+`{"has_ci": false, "percent_comment": 0.0389, "commit_frequency": 4.56, "core_contributors": 3, "iac_ratio": 0.96, "issue_frequency": 0.0, "has_license": false, "repository_size": 2224}`
+
 
 See [CHANGELOG](CHANGELOG.md) for logs detail about releases.
