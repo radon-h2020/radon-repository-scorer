@@ -91,11 +91,11 @@ report = score_repository(path_to_repo='path/to/cloned/repo',
 
 ## How to use Docker image
 
-`docker run repo-scorer:latest <host> <repo full name> <clone to>`
+`docker run -e GIT(HU|LA)B_ACCESS_TOKEN=$TOKEN repo-scorer:latest <github|gitlab> <repo full name> <clone to>`
 
 **Example**
 
-`docker run repo-scorer:latest github UoW-CPC/COLARepo /tmp/`
+`docker run -e GITHUB_ACCESS_TOKEN=$GITHUB_ACCESS_TOKEN repo-scorer:latest github UoW-CPC/COLARepo /tmp/`
 
 *Output:*
 

@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## [0.3.1]
+- Added .dockerignor and push to Dockerhub workflow
+
 ## [0.3.0]
 - Renamed score_repository parameter path_to_repo -> clone_to
 - Added entrypoint main.py
