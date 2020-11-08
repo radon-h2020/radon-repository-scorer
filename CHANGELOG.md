@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [0.3.4]
+- Bugfix TypeError and OSError in loc_info.py
+
+## [0.3.3]
+- Bugfix FileNotFoundException in loc_info.py
+
 ## [0.3.1][0.3.2]
 - Added .dockerignor and push to Dockerhub workflow
 

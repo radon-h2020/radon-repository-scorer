@@ -26,7 +26,7 @@ def loc_info(path_to_repo: str):
         try:
             source_analysis = SourceAnalysis.from_file(source_path, "pygount")
             project_summary.add(source_analysis)
-        except FileNotFoundError:
+        except (FileNotFoundError, TypeError, OSError):
             pass
 
     sloc = sum([summary.code_count for summary in project_summary.language_to_language_summary_map.values()])
