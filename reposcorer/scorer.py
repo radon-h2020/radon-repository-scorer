@@ -14,7 +14,7 @@ from reposcorer.attributes.loc_info import loc_info
 
 def score_repository(host: str,
                      full_name: Union[str, int],
-                     clone_to: str,):
+                     clone_to: str):
     """
     Score a repository to identify well-engineered projects.
 
