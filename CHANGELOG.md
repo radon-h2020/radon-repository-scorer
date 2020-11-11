@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [0.3.5]
+- Improved licensing and continuous_integration.
+- Added sequential workflow to upload on Dockerhub only after the upload to PyPI succeed"
+
 ## [0.3.4]
 - Bugfix TypeError and OSError in loc_info.py
 
