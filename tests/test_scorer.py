@@ -19,7 +19,19 @@ class AttributesTestCase(unittest.TestCase):
         shutil.rmtree(cls.tmp_dir)
 
     def test_score_repository(self):
-        scores = score_repository(host='github', full_name='UoW-CPC/COLARepo', clone_to=self.tmp_dir)
+        scores = score_repository(
+            host='github',
+            full_name='UoW-CPC/COLARepo',
+            clone_to=self.tmp_dir,
+            calculate_comments_ratio= True,
+            calculate_commit_frequency=True,
+            calculate_core_contributors = True,
+            calculate_has_ci=True,
+            calculate_has_license = True,
+            calculate_iac_ratio=True,
+            calculate_issue_frequency=True,
+            calculate_repository_size=True
+        )
 
         self.assertAlmostEqual(scores['commit_frequency'], 4.5, 0)
         self.assertEqual(scores['issue_frequency'], 0)

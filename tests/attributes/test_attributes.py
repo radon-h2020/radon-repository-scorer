@@ -50,19 +50,21 @@ class AttributesTestCase(unittest.TestCase):
 
     @staticmethod
     def test_github_issue_event_frequency():
-        issue_frequency = github_issue_event_frequency(full_name_or_id='ANXS/postgresql',
-                                                       since=None,
-                                                       until=datetime(year=2020, month=10, day=20))
+        if os.getenv('GITHUB_ACCESS_TOKEN'):
+            issue_frequency = github_issue_event_frequency(full_name_or_id='ANXS/postgresql',
+                                                           since=None,
+                                                           until=datetime(year=2020, month=10, day=20))
 
-        assert round(issue_frequency, 1) == 5.0
+            assert round(issue_frequency, 1) == 4.3
 
     @staticmethod
     def test_gitlab_issue_event_frequency():
-        issue_frequency = gitlab_issue_event_frequency(full_name_or_id='commonshost/ansible',
-                                                       since=None,
-                                                       until=datetime(year=2020, month=10, day=20))
+        if os.getenv('GITLAB_ACCESS_TOKEN'):
+            issue_frequency = gitlab_issue_event_frequency(full_name_or_id='commonshost/ansible',
+                                                           since=None,
+                                                           until=datetime(year=2020, month=10, day=20))
 
-        assert round(issue_frequency, 1) == 2.1
+            assert round(issue_frequency, 1) == 2.1
 
     @staticmethod
     def test_has_license():
@@ -72,11 +74,11 @@ class AttributesTestCase(unittest.TestCase):
     def test_loc_info():
         cloc, sloc = loc_info(PATH_TO_REPO)
         assert cloc == 343
-        assert sloc == 1345
+        assert sloc == 1349
 
     @staticmethod
     def test_comments_ratio():
-        assert comments_ratio(PATH_TO_REPO) == 343 / (343 + 1345)
+        assert comments_ratio(PATH_TO_REPO) == 343 / (343 + 1349)
 
 
 if __name__ == '__main__':

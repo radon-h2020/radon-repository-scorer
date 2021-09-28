@@ -61,7 +61,15 @@ from reposcorer.scorer import score_repository
 
 report = score_repository(path_to_repo='path/to/cloned/repo',
                           full_name_or_id='repo_owner/repo_name',  # e.g., radon-h2020/radon-repository-scorer
-                          host='github')  # or gitlab
+                          host='github',  # or gitlab
+                          calculate_comments_ratio= True,
+                          calculate_commit_frequency=True,
+                          calculate_core_contributors=True,
+                          calculate_has_ci=True,
+                          calculate_has_license=True,
+                          calculate_iac_ratio=True,
+                          calculate_issue_frequency=True,
+                          calculate_repository_size=True)
 ```
 
 **Output**
@@ -77,27 +85,6 @@ report = score_repository(path_to_repo='path/to/cloned/repo',
   'repository_size': <int>
 }
 ``` 
-
-
-## How to build the Docker image
-
-`docker build -t repo-scorer:latest .`
-
-## How to pull from Dockerhub
-
-`docker pull radonconsortium/repo-scorer:latest`
-
-## How to use Docker image
-
-`docker run -e GIT(HU|LA)B_ACCESS_TOKEN=$TOKEN repo-scorer:latest <github|gitlab> <repo full name> <clone to>`
-
-**Example**
-
-`docker run -e GITHUB_ACCESS_TOKEN=$GITHUB_ACCESS_TOKEN repo-scorer:latest github UoW-CPC/COLARepo /tmp/`
-
-*Output:*
-
-`{"has_ci": false, "percent_comment": 0.0389, "commit_frequency": 4.56, "core_contributors": 3, "iac_ratio": 0.96, "issue_frequency": 0.0, "has_license": false, "repository_size": 2224}`
 
 
 See [CHANGELOG](CHANGELOG.md) for logs detail about releases.

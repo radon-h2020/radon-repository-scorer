@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [0.4.0]
+- Added attributes to calculate as parameters of the main method.
+- Updated test cases
+
 ## [0.3.5]
 - Improved licensing and continuous_integration.
 - Added sequential workflow to upload on Dockerhub only after the upload to PyPI succeed"
