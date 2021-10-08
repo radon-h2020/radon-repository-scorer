@@ -1,6 +1,3 @@
-import git
-import os
-
 from typing import Union
 
 from reposcorer.attributes.community import core_contributors
@@ -12,50 +9,45 @@ from reposcorer.attributes.licensing import has_license
 from reposcorer.attributes.loc_info import loc_info
 
 
-def score_repository(host: str,
-                     full_name: Union[str, int],
-                     clone_to: str,
-                     calculate_comments_ratio: bool = False,
-                     calculate_commit_frequency: bool = False,
-                     calculate_core_contributors: bool = False,
-                     calculate_has_ci: bool = False,
-                     calculate_has_license: bool = False,
-                     calculate_iac_ratio: bool = False,
-                     calculate_issue_frequency: bool = False,
-                     calculate_repository_size: bool = False):
+def score_repository(
+        path_to_repo: str,
+        host: str,
+        full_name: Union[str, int],
+        calculate_comments_ratio: bool = False,
+        calculate_commit_frequency: bool = False,
+        calculate_core_contributors: bool = False,
+        calculate_has_ci: bool = False,
+        calculate_has_license: bool = False,
+        calculate_iac_ratio: bool = False,
+        calculate_issue_frequency: bool = False,
+        calculate_repository_size: bool = False):
     """
     Score a repository to identify well-engineered projects.
 
+    :param path_to_repo: path to the local repository
     :param host: the SVM hosting platform. That is, github or gitlab
     :param full_name: the full name of a repository (e.g., radon-h2020/radon-repository-scorer)
-    :param clone_to: directory to clone the repository
-    :param comments_ratio: if calculate this attribute
-    :param commit_frequency: if calculate this attribute
-    :param core_contributors: if calculate this attribute
-    :param has_ci: if calculate this attribute
-    :param has_license: if calculate this attribute
-    :param iac_ratio: if calculate this attribute
-    :param issue_frequency: if calculate this attribute
-    :param repository_size: if calculate this attribute
+    :param calculate_comments_ratio: if calculate this attribute
+    :param calculate_commit_frequency: if calculate this attribute
+    :param calculate_core_contributors: if calculate this attribute
+    :param calculate_has_ci: if calculate this attribute
+    :param calculate_has_license: if calculate this attribute
+    :param calculate_iac_ratio: if calculate this attribute
+    :param calculate_issue_frequency: if calculate this attribute
+    :param calculate_repository_size: if calculate this attribute
     :return: a dictionary with a score for every indicator
     """
 
     scores = {}
-    path_to_repo = os.path.join(clone_to, full_name.split('/')[-1])
 
     if calculate_issue_frequency:
 
-        issues = 0
         if host == 'github':
             issues = github_issue_event_frequency(full_name)
 
-            if not os.path.isdir(full_name):
-                git.Git(clone_to).clone(f'https://github.com/{full_name}.git')
-
         elif host == 'gitlab':
             issues = gitlab_issue_event_frequency(full_name)
-            if not os.path.isdir(full_name):
-                git.Git(clone_to).clone(f'https://github.com/{full_name}.git')
+
         else:
             raise ValueError(f'{host} not supported. Please select github or gitlab')
 
