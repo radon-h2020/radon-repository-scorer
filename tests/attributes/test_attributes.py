@@ -4,7 +4,7 @@ import unittest
 from datetime import datetime
 from dotenv import load_dotenv
 from pathlib import Path
-from pydriller import GitRepository
+from pydriller import Git
 
 from reposcorer.attributes.comments import comments_ratio
 from reposcorer.attributes.community import core_contributors
@@ -24,7 +24,7 @@ class AttributesTestCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         load_dotenv()
-        cls.git_repo = GitRepository(PATH_TO_REPO)
+        cls.git_repo = Git(PATH_TO_REPO)
         cls.git_repo.reset()
         cls.git_repo.checkout('d8fc0d3316aa7ed099f23ce3a5546a74734aef8d')
 

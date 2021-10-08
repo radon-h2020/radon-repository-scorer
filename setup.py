@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='repository-scorer',
-    version="0.4.0",
+    version="0.5.0",
     description='A python package to compute a repository best engineering practices indicators',
     long_description=long_description,
     long_description_content_type="text/markdown",

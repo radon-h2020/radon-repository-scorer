@@ -1,4 +1,4 @@
-from pydriller import RepositoryMining
+from pydriller import Repository
 
 
 def commit_frequency(path_to_repo:str) -> float:
@@ -8,7 +8,7 @@ def commit_frequency(path_to_repo:str) -> float:
     :return: the average number of commits per month
     """
 
-    commits = list(RepositoryMining(path_to_repo).traverse_commits())
+    commits = list(Repository(path_to_repo).traverse_commits())
 
     first_commit_date = commits[0].committer_date
     last_commit_date = commits[-1].committer_date

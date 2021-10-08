@@ -4,7 +4,7 @@ total number of commits to a source code repository accounts for 80% or more of 
 the total contributions.
 """
 
-from pydriller import RepositoryMining
+from pydriller import Repository
 
 
 def core_contributors(path_to_repo: str) -> int:
@@ -17,7 +17,7 @@ def core_contributors(path_to_repo: str) -> int:
     total_commits = 0
     contributors = dict()
 
-    for commit in RepositoryMining(path_to_repo).traverse_commits():
+    for commit in Repository(path_to_repo).traverse_commits():
         total_commits += 1
         contributors[commit.committer.email] = contributors.get(commit.committer.email, 0) + 1
 
