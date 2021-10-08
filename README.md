@@ -59,7 +59,7 @@ pip install .
 ```python
 from reposcorer.scorer import score_repository
 
-report = score_repository(path_to_repo='path/to/cloned/repo',
+report = score_repository(clone_to='path/to/a/dir/',
                           full_name_or_id='repo_owner/repo_name',  # e.g., radon-h2020/radon-repository-scorer
                           host='github',  # or gitlab
                           calculate_comments_ratio= True,
