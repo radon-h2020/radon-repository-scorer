@@ -10,6 +10,7 @@ def iac_ratio(path_to_repo: str) -> float:
     iac_files = [(file.endswith('.yml') or file.endswith('.yaml') or file.endswith('.j2'))
                  or (('cookbooks' in file or 'recipe' in file) and file.endswith('.rb'))
                  or file.endswith('.pp')
+                 or file.endswith('.tf')
                  for file in get_files(path_to_repo)]
 
     ratio = 0
