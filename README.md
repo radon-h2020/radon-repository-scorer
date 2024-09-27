@@ -1,7 +1,7 @@
 ![Build](https://github.com/radon-h2020/radon-repository-scorer/workflows/Build/badge.svg)
-![lgtm](https://img.shields.io/lgtm/grade/python/github/radon-h2020/radon-repository-scorer)
 ![pypi-version](https://img.shields.io/pypi/v/repository-scorer)
 ![pypi-status](https://img.shields.io/pypi/status/repository-scorer)
+[![Downloads](https://pepy.tech/badge/repository-scorer/month)](https://pepy.tech/project/repository-scorer)
 ![release-date](https://img.shields.io/github/release-date/radon-h2020/radon-repository-scorer)
 ![python-version](https://img.shields.io/pypi/pyversions/repository-scorer)
 
